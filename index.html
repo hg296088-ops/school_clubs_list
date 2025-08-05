@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>우리 학교 동아리 소개</title>
+  <style>
+    /* 기본 스타일 */
+    body {
+      font-family: 'Malgun Gothic', Arial, sans-serif;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #4a4a8a;
+    }
+
+    /* 카테고리 탭 메뉴 스타일 */
+    #category-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap; /* 탭이 많아지면 줄바꿈 */
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .tab-btn {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 1.05em;
+      cursor: pointer;
+      background-color: #e0e0e0;
+      color: #333;
+      border: none;
+      border-radius: 20px;
+      transition: background-color 0.3s, color 0.3s;
+      outline: none;
+    }
+    .tab-btn:hover {
+      background-color: #d0d0d0;
+    }
+    .tab-btn.active {
+      background-color: #4a4a8a;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* 각 동아리 정보 박스 스타일 */
+    .club-category-container {
+      /* 이 div가 카테고리별 동아리 그룹을 담는 컨테이너 */
+      display: none; /* 기본적으로는 숨겨져 있다가 탭 클릭 시 보이게 */
+    }
+    .club-category-container.active {
+      display: block; /* active 클래스가 붙으면 보이게 */
+    }
+
+    details {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1.2em;
+      outline: none;
+    }
+    summary:hover {
+      color: #4a4a8a;
+    }
+    p, ul {
+      margin-left: 20px;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+    ul {
+      list-style-type: disc;
+    }
+    h3 {
+      color: #6a6aff; /* 활동 내용 등 소제목 색상 */
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* 화면이 작아질 때 레이아웃 변경 */
+    @media (max-width: 600px) {
+      #category-tabs {
+        flex-direction: column; /* 카테고리 탭을 세로로 나열 */
+        align-items: stretch;
+      }
+      .tab-btn {
+        margin: 5px 0; /* 세로 마진 조정 */
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>우리 학교 동아리 소개</h1>
+
+  <div id="category-tabs">
+    <button class="tab-btn active" data-category="science">과학/이공/의학</button>
+    <button class="tab-btn" data-category="it_media">정보/IT/미디어</button>
+    <button class="tab-btn" data-category="humanities_arts">인문/사회/예술</button>
+    <button class="tab-btn" data-category="education">교육</button>
+    <button class="tab-btn" data-category="business">경영/경제/창업</button>
+    <button class="tab-btn" data-category="sports_other">체육/기타</button>
+  </div>
+
+  <div id="club-content-area">
+    <!-- 과학/이공/의학 동아리 -->
+    <div id="science" class="club-category-container active">
+      <details>
+        <summary>생명 과학 동아리 CELL</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>식물 호르몬 옥신의 기능 조가 및 굴광성 실험</li>
+          <li>Python을 활용한 식물 호르몬 옥신의 유전자 염기서열 분석</li>
+          <li>옥실을 활용한 뿌리 신장 실험 및 종묘 생산간 적정 농도 탐구</li>
+          <li>식물 호르몬 활용 종묘 대량 생산 스마트팜 기획</li>
+          <li>물벼룩을 이용한 아드레날린과 아세틸콜린의 영향 관찰 실험</li>
+          <li>실험 보고서 작성</li>
+          <li>실험과 연관된 주제 선정 후 토론, 결과 발표</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>물리 화학 동아리 아르케(ARCHE)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>갈비니 전지, 과일 전지 제작 및 전도도 측정+전지 성능 최적화 방안 연구</li>
+          <li>몬테카를로 시물레이션(가설 검증), 상태 공간 탐색(최적화) 응용 모의 실험</li>
+          <li>광전 효과 및 광센서 응용 실험</li>
+          <li>광화학 반응 및 브라운 운동 실험</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>보건 의료 동아리 하이진</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>카페인 추출 실험</li>
+          <li>항생제 내성 실험</li>
+          <li>생명공학 실험 조사 및 발표</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>생명,화학 동아리 BIOCHEMIST</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>생물화학 분야의 책을 읽은 후 그와 관련된 토론 진행</li>
+          <li>책의 내용을 확장하여 탐구할 수 있는 실험 진행 후 보고서 작성</li>
+          <li>활동을 하며 관심이 생긴 주제에 대한 개인별 주제 활동</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>환경 과학 동아리 E2 LAB(Earth&Environment Lab)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>대기,수질,토양,생태,기후 변화 등 다양한 환경 문제를 주제로 자신이 관심있는 분야를 주로 탐구</li>
+          <li>4~5명이 조가 되어 주제 선정/배경,이론 조사/실험 설계 및 수행/최종 결과 분석 및 결론 도출 등의 과정을 담은 보고서 작성 후 조별 발표 및 상호 피드백</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>생명과학, 화학 동아리 노벨엑스(NOBEL X)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>무기 촉매에 따른 과산화수소 분해 실험</li>
+          <li>효소 활성 측정 실험(PH 농도 변화에 따른 효소의 작용 비교)</li>
+          <li>두 실험 사이의 차이성 및 관계성 탐구 보고서 작성</li>
+          <li>실험 관련 주제 및 관심 분야별 주제 선정 후 AI를 활동한 조별 토론 진행 및 발표</li>
+          <li>선형화 기법을 사용한 위 실험의 수학적 증명(융합적 능력)</li>
+          <li>외부 동아리 활동</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>과학 동아리 MOLT</summary>
+        <h3>[실험 활동]</h3>
+        <ul>
+          <li>카페인 추출 실험</li>
+          <li>전기 영동 및 PCR</li>
+          <li>천연 물질 효능 실험</li>
+          <li>역적정을 이용한 제산제의 효과 비교</li>
+        </ul>
+        <h3>[심화 탐구 활동]</h3>
+        <ul>
+          <li>토론 활동 및 독서 보고서</li>
+          <li>조별 소논문 작성 및 발표</li>
+          <li>과학관 외부 부스 운영</li>
+          <li>타 동아리와의 합동 프로그램</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>공학 동아리 베타(BETA)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>분야별 자율주행과 관련된 탐구 활동</li>
+          <li>진로와 연계된 제작 활동</li>
+          <li>인공지능 자율주행 RC카 제작 후 시행</li>
+          <li>라즈베리파이를 이용한 코드 작성</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>의학 동아리 슬의생(슬기로운 의생명 동아리)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>4명이 한 팀이 되어 의생명 관련 주제로 ‘장기 프로젝트 진행’</li>
+          <li>동아리만의 체계화된 커리큘럼으로 심화된 주제를 탐구하여 최종적으로 보고서/논문 작성 목표</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>과학 동아리 오투</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>교과 과정 내외의 실험</li>
+          <li>진로희망 및 관심 분야 심화 탐구 후 조별 발표,과학 이슈에 대한 토론 활동 등</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>의학 생명동아리 골든타임</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>루미놀 혈흔 반응 실험,효소 활성 실험 등의 실험 진행</li>
+          <li>선후배 직속제를 통한 의학/과학 관련 조별 관심 주제 심화 탐구 및 발표</li>
+          <li>전문 병원 견학</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>과학 동아리 프시케(Psyche)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>다양한 실험 진행</li>
+          <li>토의/토론</li>
+          <li>심화 탐구 보고서 작성</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>과학 동아리 시냅스(SYNAPSE)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>진로와 관련된 실험 주제 논의&실험 진행</li>
+          <li>진로와 관련된 심화 탐구,연구 발표,소논문 작성을 통한 학문적 글쓰기 능력 및 자료 분석 능력 배양</li>
+        </ul>
+      </details>
+    </div>
+
+    <!-- 정보/IT/미디어 동아리 -->
+    <div id="it_media" class="club-category-container">
+      <details>
+        <summary>정보 동아리 코드긱스(CODEGEEKS)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>파이썬,C언어, js등을 이용한 프로젝트 진행</li>
+          <li>생기부에 적히는 외부 활동</li>
+        </ul>
+        <h3>작년 수상 실적</h3>
+        <ul>
+          <li>제 11회 SW융합 해커톤 대회 수상</li>
+          <li>2024 SW 동행 스테이지 데모데이 수상</li>
+          <li>제 2회 AI 팀 프로젝트 슈퍼컴퓨팅 청소년 캠프 울산광역시 교육감상</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>방송부 UGBC</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>학교 타종 관리</li>
+          <li>아침 방송 및 청소 시간 음악</li>
+          <li>학교 행사 및 방송 진행</li>
+          <li>영상 제작 및 공모전 출품</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>융합 미디어 동아리 미디언즈</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>뉴스&시사 데이터 포털 API 키 발급 -> 파이썬 프로그램 -> 데이터 시각화+카드뉴스/영상 콘텐츠/가짜 뉴스 탐지 모델 개발</li>
+          <li>특정 타겟 혹은 제품 선정 -> sns트렌드,데이터 분석 -> PPT/보고서/ 광고 영상</li>
+          <li>단편 영화 제작 참여</li>
+          <li>영화 시청 -> 감상문&촬영 기법 분석</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>미디어 콘텐츠 동아리 온에어(ON AIR)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>영상 공모전</li>
+          <li>최근 sns유행과 관련된 광고 촬영,포스터 만들기</li>
+          <li>영화 시청 -> 토론</li>
+          <li>영화 패러디 혹은 오마주</li>
+          <li>영화 촬영 기법 따라해보기</li>
+        </ul>
+      </details>
+    </div>
+
+    <!-- 인문/사회/예술 동아리 -->
+    <div id="humanities_arts" class="club-category-container">
+      <details>
+        <summary>붓놀림</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>작품 감상 및 보고서 작성</li>
+          <li>공동 창작 프로젝트</li>
+          <li>교내 전시회</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>외국어 동아리 STEP BY STEP</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>원서 번역 및 발표</li>
+          <li>해외 토픽에 관한 조사 및 토론</li>
+          <li>특정 문화권 탐구</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>시사톡톡</summary>
+        <h3>주요 활동</h3>
+        <ul>
+          <li>사회적 이슈를 토대로 진로에 대한 주제 발표, 토론</li>
+          <li>개인의 진로에 맞춘 팀 프로젝트 진행(설문조사 후 교내 신문 발행,프로젝트 봉사활동,또래상담 등)</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>교지편집부 얘깃골</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>학교 행사 취재 및 사진 촬영+인터뷰</li>
+          <li>분기별 전자교지 제작</li>
+          <li>다양한 sns 게시물 제작</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>도서부 토리</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>독서 토론</li>
+          <li>자유 독서</li>
+          <li>소설 원작 영화 시청</li>
+          <li>책 관련 체험 활동</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>윤리&심리 융합 동아리 PSYLEXUS</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>‘무지의 장막’ 실험</li>
+          <li>기사 기고</li>
+          <li>캠페인 활동</li>
+          <li>토론 활동</li>
+          <li>심리 실험 및 사회 실험</li>
+        </ul>
+      </details>
+    </div>
+
+    <!-- 교육 동아리 -->
+    <div id="education" class="club-category-container">
+      <details>
+        <summary>교육 동아리 소담</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>학교폭력 예방 캠패인 활동 및 포스터 제작</li>
+          <li>수업자료 제작 및 모의 수업</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>교육 동아리 에듀피아</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>멘토멘티 교육 연구 활동</li>
+          <li>창의적 교수법 실습</li>
+          <li>교육 시스템 미래교육 연구</li>
+          <li>번외 활동</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>교육 동아리 교학 상장</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>교사의 수업 방식 탐구하기</li>
+          <li>교육 관련 주제 선정 후 토론</li>
+          <li>자신이 희망하는 과목별  모의수업 진행하기</li>
+        </ul>
+      </details>
+    </div>
+
+    <!-- 경영/경제/창업 동아리 -->
+    <div id="business" class="club-category-container">
+      <details>
+        <summary>마케팅 동아리 니즈</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>유명 브랜드의 마케팅 사례를 연구하고 토론</li>
+          <li>주어진 주제에 맞춰 짧은 광고 콘텐츠 기획 및 제작</li>
+          <li>특정 주제나 제품을 가지고 입소문 전략을 직접 기획 및 실행</li>
+          <li>기존 브랜드를 분석하고 새로운 마케팅 전략과 디자인 기획</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>창업동아리 아디어스(IDEA+US)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>청소년 창업 지원 프로그램 참여 및 창업자 인터뷰</li>
+          <li>학생들이 불편해하고 필요로하는 또는 지역사회에서 문제가 되는 서비스/제품 수요 조사 후 브레인스토밍을 통한 창업 아이템 선정</li>
+          <li>창업 계획서 작성 및 시제품 제작, 청소년 창업경진대회 참여</li>
+        </ul>
+      </details>
+    </div>
+
+    <!-- 체육/기타 동아리 -->
+    <div id="sports_other" class="club-category-container">
+      <details>
+        <summary>체육 동아리 시너지(SYNERGY)</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>테이핑 실습</li>
+          <li>스포츠 영화 시청 후 후속 활동</li>
+          <li>모둠별 주제 탐구 활동</li>
+          <li>자체 리그전</li>
+          <li>뉴스포츠 조별 소개 후 경기 진행</li>
+          <li>진로 관련 탐구 보고서 작성</li>
+          <li>다양한 종목 활동</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>융합탐구동아리 유니온 UNION</summary>
+        <h3>활동 내용</h3>
+        <ul>
+          <li>비슷한 진로를 가진 친구들끼리 탐구 프로젝트 진행</li>
+          <li>그룹별 프로젝트를 모아 하나의 프로젝트 제작</li>
+          <li>다양한 실험 진행</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const clubCategoryContainers = document.querySelectorAll('.club-category-container');
+
+    // 초기 로드 시 첫 번째 카테고리가 보이도록 설정 (HTML에 active 클래스로 이미 설정됨)
+    // 과학/이공/의학 탭이 active 상태로 시작하고 해당 동아리 목록이 보임.
+
+    // 탭 버튼 클릭 이벤트 리스너
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedCategory = button.getAttribute('data-category');
+
+        // 모든 탭 버튼에서 active 클래스 제거
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        // 클릭된 탭 버튼에만 active 클래스 추가
+        button.classList.add('active');
+
+        // 모든 동아리 카테고리 컨테이너 숨기기
+        clubCategoryContainers.forEach(container => {
+          container.classList.remove('active');
+        });
+        // 선택된 카테고리의 컨테이너만 보이게 하기
+        document.getElementById(selectedCategory).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
